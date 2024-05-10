@@ -8,7 +8,7 @@ import { CameraView } from "expo-camera";
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <CameraView style={{ flex: 1, width: "100%" }}></CameraView>
+      <Text>Pagina Home</Text>
     </View>
   );
 }
@@ -16,7 +16,7 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
+      <CameraView style={{ flex: 1, width: "100%" }}></CameraView>
     </View>
   );
 }
