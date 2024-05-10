@@ -42,7 +42,7 @@ export default function App() {
               <Feather name="camera" size={20} color={color} />
             ),
           }}
-          name="Settings"
+          name="Camera"
           component={SettingsScreen}
         />
       </Tab.Navigator>
