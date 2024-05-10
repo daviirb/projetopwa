@@ -1,20 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Feather } from "@expo/vector-icons";
+import { CameraView } from "expo-camera";
 
-export default function App() {
+function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <CameraView style={{ flex: 1, width: "100%" }}></CameraView>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Feather name="home" size={20} color={color} />
+            ),
+          }}
+          name="Home"
+          component={HomeScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Feather name="camera" size={20} color={color} />
+            ),
+          }}
+          name="Settings"
+          component={SettingsScreen}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
