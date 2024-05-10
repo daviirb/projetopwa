@@ -21,7 +21,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png",
+      "favicon": "./assetss/favicon.png",
       "manifest": "./public/manifest.json"
     }
   }
