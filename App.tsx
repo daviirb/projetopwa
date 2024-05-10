@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
 import { CameraView } from "expo-camera";
 
 function HomeScreen() {
@@ -13,10 +14,25 @@ function HomeScreen() {
   );
 }
 
-function SettingsScreen() {
+function Contatos() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <CameraView style={{ flex: 1, width: "100%" }}></CameraView>
+      <Text>Contatos</Text>
+    </View>
+  );
+}
+
+function Atendimentos() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Atendimentos</Text>
+    </View>
+  );
+}
+function Atividade() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Atividade</Text>
     </View>
   );
 }
@@ -30,7 +46,7 @@ export default function App() {
         <Tab.Screen
           options={{
             tabBarIcon: ({ color }) => (
-              <Feather name="home" size={20} color={color} />
+              <FontAwesome6 name="house-chimney" size={24} color={color} />
             ),
           }}
           name="Home"
@@ -39,11 +55,29 @@ export default function App() {
         <Tab.Screen
           options={{
             tabBarIcon: ({ color }) => (
-              <Feather name="camera" size={20} color={color} />
+              <FontAwesome6 name="user" size={24} color={color} />
             ),
           }}
-          name="Camera"
-          component={SettingsScreen}
+          name="Contatos"
+          component={Contatos}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({ color }) => (
+              <FontAwesome6 name="sack-dollar" size={24} color={color} />
+            ),
+          }}
+          name="Atendimentos"
+          component={Atendimentos}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({ color }) => (
+              <FontAwesome6 name="calendar-check" size={24} color={color} />
+            ),
+          }}
+          name="Atividade"
+          component={Atividade}
         />
       </Tab.Navigator>
     </NavigationContainer>
